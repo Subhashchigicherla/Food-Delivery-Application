@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 1.5rem;
+      overflow-x: hidden;
+    }
+
+    .confirmation-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 32rem;
+      text-align: center;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .success-icon {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(45deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      position: relative;
+      animation: scaleIn 0.5s ease-out;
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+    }
+
+    .success-icon::before,
+    .success-icon::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+    }
+
+    .success-icon::before {
+      width: 5px;
+      height: 25px;
+      transform: rotate(45deg) translate(5px, 12px);
+    }
+
+    .success-icon::after {
+      width: 40px;
+      height: 5px;
+      transform: rotate(45deg) translate(-6px, 18px);
+    }
+
+    .message h1 {
+      color: #0f172a;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.5s ease-out 0.3s both;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .message p {
+      color: #64748b;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.5s ease-out 0.5s both;
+    }
+
+    .bike-container {
+      position: relative;
+      height: 80px;
+      margin-top: 3rem;
+      overflow: hidden;
+      background: linear-gradient(transparent 50%, rgba(203, 213, 225, 0.2) 50%);
+      border-radius: 1rem;
+    }
+
+    .bike {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      animation: rideBike 3s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bike::before {
+      content: '🚲';
+      font-size: 50px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .road {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #cbd5e1 20%, #cbd5e1 80%, transparent);
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rideBike {
+      from {
+        left: -80px;
+        transform: scaleX(1);
+      }
+      49.9% {
+        transform: scaleX(1);
+      }
+      50% {
+        left: 100%;
+        transform: scaleX(-1);
+      }
+      50.1% {
+        left: 100%;
+        transform: scaleX(-1);
+      }
+      to {
+        left: -80px;
+        transform: scaleX(-1);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .confirmation-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .message h1 {
+        font-size: 2rem;
+      }
+
+      .message p {
+        font-size: 1.125rem;
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  
